@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+        <!-- Set up basic database connection properties -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://192.168.85.132/BookManager?serverTimezone=UTC
+        </property>
+        <property name="hibernate.connection.username">superfrog</property>
+        <property name="hibernate.connection.password">GoFrogs123!</property>
+        <!-- Configure SQL Dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- The following properties are optional -->
+
+        <!-- Echo all executed SQL to console -->
+        <property name="show_sql">true</property>
+
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+
+        <!-- optional section ends -->
+
+        <!-- Hibernate needs to know the Java Beans -->
+        <!-- Names the annotated entity class -->
+        <mapping class="Domain.Book"/>
+        <mapping class="Domain.Publisher"/>
+        <mapping class="Domain.Author"/>
+        <mapping class="Domain.Editor"/>
+    </session-factory>
+
+</hibernate-configuration>
